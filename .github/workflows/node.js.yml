@@ -36,7 +36,7 @@ jobs:
         
       - name: Deploy to Netlify
         if: ${{ success() }}
-        run: npx netlify-cli deploy --prod
+        run: npx netlify-cli deploy --prod --dir=./frontend/build
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: 00f1019b-b0c1-4c13-b6f9-3e3bf688e8c5
