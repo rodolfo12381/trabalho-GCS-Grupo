@@ -5,7 +5,8 @@ jobs:
     docker:
       - image: node:14
     steps:
-      - checkout
+      - checkout:
+          path: /root/frontend
       - run:
           name: "Install dependencies"
           command: npm install
