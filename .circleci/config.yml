@@ -1,44 +1,26 @@
-version: 2
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/configuration-reference
+version: 2.1
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  test:
+  say-hello:
+    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/configuration-reference/#executor-job
     docker:
-      - image: node:14 # Imagem do ambiente de teste com a versão do Node.js desejada
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
-      - checkout # Checar o repositório
+      - checkout
       - run:
-          name: Install Dependencies
-          command: npm ci # Instalar as dependências do projeto com o npm
-      - run:
-          name: Run Tests
-          command: npm run test # Executar os testes com o npm
-  build:
-    docker:
-      - image: node:14 # Imagem do ambiente de build com a versão do Node.js desejada
-    steps:
-      - checkout # Checar o repositório
-      - run:
-          name: Install Dependencies
-          command: npm ci # Instalar as dependências do projeto com o npm
-      - run:
-          name: Build
-          command: npm run build # Executar o build da aplicação com o npm
-    when:
-        - on_success: # Executar o trabalho "build" apenas quando o trabalho "test" for bem-sucedido
-            job: test
-  # deploy:
-  #   docker:
-  #     - image: node:14 # Imagem do ambiente de homologação com a versão do Node.js desejada
-  #   steps:
-  #     - checkout # Checar o repositório
-  #     - restore_cache:
-  #         keys:
-  #           - v1-dependencies-{{ checksum "package.json" }}
-  #           # Restaurar cache das dependências do npm, se disponível
-  #     - run:
-  #         name: Install Dependencies
-  #         command: npm ci # Instalar as dependências do projeto com o npm
-  #     - run:
-  #         name: Build and Deploy
-  #         command: npm run build #&& <comando_de_deploy> # Executar o build e o deploy da aplicação com o npm
-  #   when:
-  #     - <<test>> # Nome do trabalho de testes aprovado
+          name: "Say hello"
+          command: "echo Hello, World!"
+
+# Orchestrate jobs using workflows
+# See: https://circleci.com/docs/configuration-reference/#workflows
+workflows:
+  say-hello-workflow:
+    jobs:
+      - say-hello
