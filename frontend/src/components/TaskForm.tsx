@@ -44,7 +44,7 @@ const TaskForm = ({btnText,taskList,setTaskList,task,handleUpdate}: Props) => {
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if(e.target.name == "title") {
+        if(e.target.name === "title") {
             setTitle(e.target.value)
         } else {
             setDifficulty(parseInt(e.target.value))
