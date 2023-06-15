@@ -47,31 +47,6 @@ public class UsuarioServiceIT {
 		Assertions.assertEquals(totalDeUsuario + 1, repository.count());
 	}
 
-//	@Test
-//	public void deleteDeveDeletarUsuarioExistente() {
-//
-//		UsuarioInsertDTO user = new UsuarioInsertDTO();
-//		user.setEmail("testando123@gmail.com");
-//		user.setPrimeiroNome("testea");
-//		user.setSobreNome("olaola");
-//		user.setPassword("saatset");
-//		totalDeUsuario++;
-//		service.insert(user);
-//
-//		service.delete(idExistente);
-//
-//		Assertions.assertEquals(totalDeUsuario - 1, repository.count());
-//
-//	}
-
-//	@Test
-//	public void deleteDeveLancarExcecaoQuandoIdNaoExiste() {
-//
-//		Assertions.assertThrows(Exception.class, () -> {
-//			service.delete(idNaoExistente);
-//		});
-//	}
-
 	@Test
 	public void findAllPagedDeveRetornarUmaPaginaDeUsuarios() {
 

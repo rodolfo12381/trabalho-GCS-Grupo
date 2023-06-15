@@ -56,25 +56,7 @@ public class UsuarioServiceTest {
 		Mockito.doThrow(EmptyResultDataAccessException.class).when(repository).deleteById(idNaoExistente);
 		Mockito.doThrow(DataIntegrityViolationException.class).when(repository).deleteById(idDependente);
 	}
-//
-//	@Test
-//	public void deleteDeveLancaExceçãoQuandoIdNaoExiste() {
-//
-//		Assertions.assertThrows(NullPointerException.class, () -> {
-//			service.delete(idNaoExistente);
-//		});
-//
-//	}
 
-	// Usuario com IdDependente sao os que possuem consultas marcadas, por exemplo
-//	@Test
-//	public void deleteDeveLancaExececaoComIdDependente() {
-//
-//		Assertions.assertThrows(Exception.class, () -> {
-//			service.delete(idDependente);
-//		});
-//
-//	}
 
 	@Test
 	public void findAllPagedDeveRetornarUmaPagina() {
