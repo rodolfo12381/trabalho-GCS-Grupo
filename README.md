@@ -1,4 +1,4 @@
-# trabalho-GCS-Grupo
+# TaskPlanner
 É necessário ter ferramentas que facilitem o planejamento e a execução das tarefas no ambiente atual, onde a organização e o gerenciamento eficazes das tarefas desempenham um papel crítico no sucesso pessoal e profissional. Neste artigo, sugerimos um novo método para melhorar o gerenciamento de tarefas que assume a forma de uma lista de tarefas. O nosso conceito centra-se na flexibilidade e personalização e permite ao utilizador escolher o grau de dificuldade para cada atividade, proporcionando-lhe uma experiência específica para os seus desejos e necessidades. Com a ajuda deste sistema, esperamos aumentar a produção e a eficiência, ajudando as pessoas a alcançar seus objetivos de maneira mais eficaz e estruturada.
 
 ### Divisão de Tarefas
