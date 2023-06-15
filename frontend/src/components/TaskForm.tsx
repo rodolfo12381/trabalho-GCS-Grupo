@@ -99,16 +99,18 @@ const TaskForm = ({ btnText, taskList, setTaskList, task, handleUpdate }: Props)
           value={difficulty}
         />
       </div>
-      <div className={styles.input_container}>
-        <label htmlFor="difficulty">ID_matricula:</label>
-        <input
-          type="text"
-          name="difficulty"
-          placeholder="Dificuldade da tarefa"
-          onChange={(e)=>setIdMatricula(parseInt(e.target.value))}
-          value={id_matricula}
-        />
-      </div>
+      {handleUpdate && 
+        <div className={styles.input_container}>
+          <label htmlFor="difficulty">ID_matricula:</label>
+          <input
+            type="text"
+            name="difficulty"
+            placeholder="Dificuldade da tarefa"
+            onChange={(e)=>setIdMatricula(parseInt(e.target.value))}
+            value={id_matricula}
+          />
+        </div>
+      }
       <input type="submit" value={btnText} />
     </form>
   );
