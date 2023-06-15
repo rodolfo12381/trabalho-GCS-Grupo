@@ -12,13 +12,21 @@ import styles from './App.module.css'
 
 //Interface
 import { ITask } from './interfaces/Task';
+import axios from 'axios';
 
 function App() {
 
   const [taskList,setTaskList] = useState<ITask[]>([])
   const [taskToUpdate, setTaskToUpdate] = useState<ITask | null>(null)
   
-  const deleteTask = (id: number) => {
+  const deleteTask = async (id: number) => {
+
+    try {
+      const response = await axios.delete(`http://localhost:8080/task/${id}`);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Erro ao excluir a tarefa:", error);
+    }
     setTaskList(
       taskList.filter(task => {
         return task.id !== id
