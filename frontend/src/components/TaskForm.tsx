@@ -45,7 +45,7 @@ const TaskForm = ({ btnText, taskList, setTaskList, task, handleUpdate }: Props)
 
   const addTaskHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    console.log(id)
     if (handleUpdate) {
       handleUpdate(id_matricula, title, difficulty);
     } else {
