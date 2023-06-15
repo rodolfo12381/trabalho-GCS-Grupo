@@ -37,8 +37,8 @@ public class TaskService {
 	public Task update(Long id, Task dto) {
 		try {
 			Task entity = repository.getReferenceById(id);
-			entity.setTitulo(dto.getTitulo());
-			entity.setDescricao(dto.getDescricao());
+			entity.setTitle(dto.getTitle());
+			entity.setDifficulty(dto.getDifficulty());
 			entity.setUsuario(dto.getUsuario());
 			entity = repository.save(entity);
 			return entity;

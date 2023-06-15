@@ -18,13 +18,38 @@ public class Task implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String titulo;
-	private String descricao;
+	private String title;
+	private Integer difficulty;
 	private String usuario;
 	
 	public Task() {
 		
 	}
+
+	
+	public String getTitle() {
+		return title;
+	}
+
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+
+	public Integer getDifficulty() {
+		return difficulty;
+	}
+
+
+
+	public void setDifficulty(Integer difficulty) {
+		this.difficulty = difficulty;
+	}
+
+
 
 	public Long getId() {
 		return id;
@@ -34,21 +59,6 @@ public class Task implements Serializable {
 		this.id = id;
 	}
 
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 
 	public String getUsuario() {
 		return usuario;
@@ -60,7 +70,7 @@ public class Task implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(descricao, id, titulo, usuario);
+		return Objects.hash(difficulty, id, title, usuario);
 	}
 
 	@Override
@@ -72,8 +82,8 @@ public class Task implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Task other = (Task) obj;
-		return Objects.equals(descricao, other.descricao) && Objects.equals(id, other.id)
-				&& Objects.equals(titulo, other.titulo) && Objects.equals(usuario, other.usuario);
+		return Objects.equals(difficulty, other.difficulty) && Objects.equals(id, other.id)
+				&& Objects.equals(title, other.title) && Objects.equals(usuario, other.usuario);
 	}
 	
 	
