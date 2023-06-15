@@ -18,6 +18,7 @@ const TaskForm = ({ btnText, taskList, setTaskList, task, handleUpdate }: Props)
   const [id, setId] = useState<number>(0);
   const [title, setTitle] = useState<string>("");
   const [difficulty, setDifficulty] = useState<number>(0);
+  const [id_matricula, setIdMatricula] = useState<number>(0);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -46,7 +47,7 @@ const TaskForm = ({ btnText, taskList, setTaskList, task, handleUpdate }: Props)
     e.preventDefault();
 
     if (handleUpdate) {
-      handleUpdate(id, title, difficulty);
+      handleUpdate(id_matricula, title, difficulty);
     } else {
       const id = Math.floor(Math.random() * 1000);
       const newTask: ITask = { id, title, difficulty };
@@ -96,6 +97,16 @@ const TaskForm = ({ btnText, taskList, setTaskList, task, handleUpdate }: Props)
           placeholder="Dificuldade da tarefa"
           onChange={handleChange}
           value={difficulty}
+        />
+      </div>
+      <div className={styles.input_container}>
+        <label htmlFor="difficulty">ID_matricula:</label>
+        <input
+          type="text"
+          name="difficulty"
+          placeholder="Dificuldade da tarefa"
+          onChange={(e)=>setIdMatricula(parseInt(e.target.value))}
+          value={id_matricula}
         />
       </div>
       <input type="submit" value={btnText} />
