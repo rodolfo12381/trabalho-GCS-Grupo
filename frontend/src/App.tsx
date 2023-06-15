@@ -48,16 +48,23 @@ function App() {
     setTaskToUpdate(task)
   }
 
-  const udpateTask = (id: number, title: string, difficulty: number) => {
+  const udpateTask = async (id: number, title: string, difficulty: number) => {
 
     const updatedTask: ITask = {id,title,difficulty}
 
-    const updatedItems = taskList.map((task) => {
-      return task.id === updatedTask.id ? updatedTask: task
-    })
-
-    setTaskList(updatedItems)
-    hideOrShowModal(false)
+    try {
+      const response = await axios.put(`http://localhost:8080/task/${id}`, updatedTask);
+      console.log(response.data);
+  
+      const updatedItems = taskList.map((task) => {
+        return task.id === updatedTask.id ? updatedTask : task;
+      });
+  
+      setTaskList(updatedItems);
+      hideOrShowModal(false);
+    } catch (error) {
+      console.error("Erro ao atualizar a tarefa:", error);
+    }
   }
 
   return (

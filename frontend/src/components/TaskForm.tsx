@@ -19,21 +19,28 @@ const TaskForm = ({ btnText, taskList, setTaskList, task, handleUpdate }: Props)
   const [title, setTitle] = useState<string>("");
   const [difficulty, setDifficulty] = useState<number>(0);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:8080/task");
+  //       const tasks = response.data.content;
+  //       if (tasks.length > 0) {
+  //         setTaskList!([...taskList, ...tasks]);
+  //       }
+  //     } catch (error) {
+  //       console.error("Erro ao obter as tarefas:", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/task");
-        const tasks = response.data.content;
-        if (tasks.length > 0) {
-          setTaskList!([...taskList, ...tasks]);
-        }
-      } catch (error) {
-        console.error("Erro ao obter as tarefas:", error);
-      }
-    };
-  
-    fetchData();
-  }, []);
+    if (task) {
+      setId(task.id);
+      setTitle(task.title);
+      setDifficulty(task.difficulty);
+    }
+  }, [task]);
 
   const addTaskHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,10 +56,8 @@ const TaskForm = ({ btnText, taskList, setTaskList, task, handleUpdate }: Props)
         const { data } = response;
         console.log(data);
 
-      // Adicione o ID da tarefa recuperado do banco de dados à nova tarefa
         newTask.id = data.id;
 
-      // Adicione a nova tarefa à lista
       setTaskList!([...taskList, newTask]);
       } catch (error) {
         console.error("Erro ao obter os usuários:", error);

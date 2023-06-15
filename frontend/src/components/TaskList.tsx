@@ -16,6 +16,7 @@ const TaskList = ({taskList,handleDelete,handleEdit}: Props) => {
         {taskList.length > 0 ? (
             taskList.map((task) => (
                 <div key={task.id} className={styles.task} role="article">
+                    <span>{task.id}</span>
                     <div className={styles.details}>
                         <h4>{task.title}</h4>
                         <p>Dificuldade : {task.difficulty}</p>
